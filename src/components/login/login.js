@@ -1,10 +1,11 @@
 import React from 'react';
 import logo from '../../assets/images/facebook.svg';
 import './login.css';
+import Footer from '../footer/footer'
 
 const Login = ()=>{
     return(
-        <div className="container-fluid">
+        <div className="container-fluid px-0">
             
             <div className="row">
                 <div className="col">
@@ -13,7 +14,7 @@ const Login = ()=>{
                 </div>
 
                 {/* LOGIN FORM */}
-                <div className="col">
+                <div className="col form-card">
                     <div className="card" style={{width: "25rem"}}>
                         <div className="card-body pb-0">
                         <form>
@@ -34,6 +35,9 @@ const Login = ()=>{
                     </div>
                 </div>
             </div>
+
+            {/* Footer Import */}
+            <Footer />
 
         </div>
     )
