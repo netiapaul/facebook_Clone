@@ -1,9 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 .img-fluid {
-  margin: -30px;
+  margin: 0px 0px 10px 0px;
+  width: 20rem;
 }
 
 .brand-pr {
-  width: 500px;
+  width: 500px !important;
   font-size: 28px;
+  line-height: 32px;
+}
+
+.horizontal-line {
+  margin: 0px 20px 0px 20px !important;
+}
+
+.btn-success {
+  margin: 20px 30px 20px 30px;
 }
 /*# sourceMappingURL=login.css.map */

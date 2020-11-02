@@ -15,22 +15,22 @@ const Login = ()=>{
                 {/* LOGIN FORM */}
                 <div className="col">
                     <div className="card" style={{width: "25rem"}}>
-                        <div className="card-body">
+                        <div className="card-body pb-0">
                         <form>
                             <div className="form-group">
-                                <input type="email" className="form-control rounded" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                                <input type="email" className="form-control rounded" placeholder="Email address"/>
                             </div>
 
                             <div className="form-group">
-                                <input type="password" className="form-control rounded" id="exampleInputPassword1"/>
+                                <input type="password" className="form-control rounded" placeholder="Password"/>
                             </div>
 
                             <button type="button" className="btn btn-primary btn-lg btn-block rounded">Log In</button>
                         </form>
                             <p className="text-center mt-2">Forgotten password?</p>
                         </div>
-                        <hr className="mx-4"/>
-                        <button type="button" className="btn btn-success btn-lg mx-4 mb-4">Create New Account</button>
+                        <hr className="horizontal-line"/>
+                        <button type="button" className="btn btn-success btn-lg">Create New Account</button>
                     </div>
                 </div>
             </div>

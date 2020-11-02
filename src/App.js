@@ -5,7 +5,7 @@ import Login from './components/login/login.js';
 function App() {
   return (
     <div className="App">
-     < Login />
+     <Login />
     </div>
   );
 }
