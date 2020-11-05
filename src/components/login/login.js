@@ -1,16 +1,22 @@
 import React from 'react';
 import logo from '../../assets/images/facebook.svg';
 import './login.css';
-import Footer from '../footer/footer'
+import Register from '../register/register';
+import Footer from '../footer/footer';
+
 
 const Login = ()=>{
     return(
         <div className="container-fluid px-0">
             
+
+            <div className="card content">
+                <div className="card-body">
+
             <div className="row">
                 <div className="col">
-                    <img src={logo} className="img-fluid" alt="Responsive logo brand"/>
-                    <p className="brand-pr">Facebook helps you connect and share with the people in yur life</p>
+                    {/* <img src={logo} className="img-fluid" alt="Responsive logo brand"/>
+                    <p className="brand-pr">Facebook helps you connect and share with the people in your life</p> */}
                 </div>
 
                 {/* LOGIN FORM */}
@@ -31,9 +37,35 @@ const Login = ()=>{
                             <p className="text-center mt-2">Forgotten password?</p>
                         </div>
                         <hr className="horizontal-line"/>
-                        <button type="button" className="btn btn-success btn-lg">Create New Account</button>
+                        
+                        <button type="button" className="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">Create New Account</button>
+
+                        {/* MODAL OPENING */}
+                        <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog-centered modal-dialog">
+                                <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    ...
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" className="btn btn-primary">Save changes</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* MODAL CLOSING */}
                     </div>
                 </div>
+            </div>
+
+            </div>
             </div>
 
             {/* Footer Import */}
