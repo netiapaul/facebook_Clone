@@ -15,8 +15,8 @@ const Login = ()=>{
 
             <div className="row">
                 <div className="col">
-                    {/* <img src={logo} className="img-fluid" alt="Responsive logo brand"/>
-                    <p className="brand-pr">Facebook helps you connect and share with the people in your life</p> */}
+                    <img src={logo} className="img-fluid" alt="Responsive logo brand"/>
+                    <p className="brand-pr">Facebook helps you connect and share with the people in your life</p>
                 </div>
 
                 {/* LOGIN FORM */}
