@@ -45,13 +45,13 @@ const Login = ()=>{
                 <div className="card-body">
 
             <div className="row">
-                <div className="col">
+                <div className="col-md-6">
                     <img src={logo} className="img-fluid" alt="Responsive logo brand"/>
                     <p className="brand-pr d-none d-lg-block d-xl-block">Facebook helps you connect and share with the people in your life</p>
                 </div>
 
                 {/* LOGIN FORM */}
-                <div className="col form-card">
+                <div className="col-md-6 form-card">
                     <div className="card" style={{width: "25rem"}}>
                         <div className="card-body pb-0">
 
@@ -69,11 +69,10 @@ const Login = ()=>{
                                 value={formik.values.email}
                                 placeholder="email address"
                                 />
-                        
-                            {formik.touched.email && formik.errors.email ? <div className="alert alert-danger" role="alert">
-                                {formik.errors.email}
-                            </div> : null}
                         </div>
+                        {formik.touched.email && formik.errors.email ? <div className="alert alert-danger" role="alert">
+                            {formik.errors.email}
+                        </div> : null}
 
                         <div className="form-group">
                             <input
@@ -87,10 +86,10 @@ const Login = ()=>{
                             placeholder="password"
                             />
        
-                            {formik.errors.password ? <div className="alert alert-danger" role="alert">
-                                {formik.errors.password}
-                            </div> : null}
                         </div>
+                        {formik.errors.password ? <div className="alert alert-danger" role="alert">
+                            {formik.errors.password}
+                        </div> : null}
        
                                 <button type="submit" className="btn btn-primary btn-lg btn-block rounded">Log In</button>
 
@@ -131,7 +130,7 @@ const Login = ()=>{
             </div>
 
             {/* Footer Import */}
-            {/* <Footer /> */}
+            <Footer />
 
         </div>
     )
