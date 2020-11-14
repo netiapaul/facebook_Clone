@@ -15,11 +15,11 @@ const Register = () =>{
   </div>
 
   <div className="form-group">
-    <input type="email" className="form-control" id="email" placeholder="email address"/>
+    <input type="email" className="form-control" id="regemail" placeholder="email address"/>
   </div>
 
   <div className="form-group">
-    <input type="password" className="form-control" id="password" placeholder="password"/>
+    <input type="password" className="form-control" id="regpassword" placeholder="password"/>
   </div>
 
   <p className="register_note">

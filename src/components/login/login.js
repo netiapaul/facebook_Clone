@@ -3,9 +3,40 @@ import logo from '../../assets/images/facebook.svg';
 import './login.css';
 import Register from '../register/register';
 import Footer from '../footer/footer';
+import { useFormik } from 'formik';
 
+const validate = values => {
+    const errors = {};
+    if (!values.email) {
+        errors.email = 'Required';
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+        errors.email = 'Invalid email address';
+      }
+  
+    if (!values.password) {
+      errors.password = 'Required';
+    } else if (values.password.length < 8) {
+      errors.password = 'Must be 8 characters or more';
+    }
+  
+   
+  
+    return errors;
+  };
 
 const Login = ()=>{
+
+    const formik = useFormik({
+        initialValues: {
+          email: '',
+          password: '',
+        },
+        validate,
+        onSubmit: values => {
+          alert(JSON.stringify(values, null, 2));
+        },
+      });
+
     return(
         <div className="container-fluid px-0">
             
@@ -23,17 +54,48 @@ const Login = ()=>{
                 <div className="col form-card">
                     <div className="card" style={{width: "25rem"}}>
                         <div className="card-body pb-0">
-                        <form>
-                            <div className="form-group">
-                                <input type="email" className="form-control rounded" placeholder="Email address"/>
-                            </div>
 
-                            <div className="form-group">
-                                <input type="password" className="form-control rounded" placeholder="Password"/>
-                            </div>
+                            <form onSubmit={formik.handleSubmit}>
 
-                            <button type="button" className="btn btn-primary btn-lg btn-block rounded">Log In</button>
-                        </form>
+                                <div className="form-group">
+
+                                <input
+                                className="form-control rounded"
+                                id="email"
+                                name="email"
+                                type="email"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.email}
+                                placeholder="email address"
+                                />
+                        
+                            {formik.touched.email && formik.errors.email ? <div className="alert alert-danger" role="alert">
+                                {formik.errors.email}
+                            </div> : null}
+                        </div>
+
+                        <div className="form-group">
+                            <input
+                            className="form-control rounded"
+                            id="password"
+                            name="password"
+                            type="password"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.password}
+                            placeholder="password"
+                            />
+       
+                            {formik.errors.password ? <div className="alert alert-danger" role="alert">
+                                {formik.errors.password}
+                            </div> : null}
+                        </div>
+       
+                                <button type="submit" className="btn btn-primary btn-lg btn-block rounded">Log In</button>
+
+                            </form>
+
                             <p className="text-center mt-2">Forgotten password?</p>
                         </div>
                         <hr className="horizontal-line"/>
@@ -46,7 +108,7 @@ const Login = ()=>{
                                 <div className="modal-content">
                                     <div className="modal-header">
                                         <h5 className="modal-title" id="exampleModalLabel">Sign Up</h5>
-                                        {/* <p>It's quick and easy</p> */}
+                                        <p>It's quick and easy</p>
                                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         
@@ -69,7 +131,7 @@ const Login = ()=>{
             </div>
 
             {/* Footer Import */}
-            <Footer />
+            {/* <Footer /> */}
 
         </div>
     )
