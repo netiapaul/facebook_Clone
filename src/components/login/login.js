@@ -69,10 +69,11 @@ const Login = ()=>{
                                 value={formik.values.email}
                                 placeholder="email address"
                                 />
-                        </div>
-                        {formik.touched.email && formik.errors.email ? <div className="alert alert-danger" role="alert">
+                                {formik.touched.email && formik.errors.email ? <div className="alert alert-danger mt-1" role="alert">
                             {formik.errors.email}
                         </div> : null}
+                        </div>
+                        
 
                         <div className="form-group">
                             <input
@@ -85,11 +86,13 @@ const Login = ()=>{
                             value={formik.values.password}
                             placeholder="password"
                             />
-       
-                        </div>
-                        {formik.errors.password ? <div className="alert alert-danger" role="alert">
+
+                        {formik.touched.password && formik.errors.password ? <div className="alert alert-danger mt-1" role="alert">
                             {formik.errors.password}
                         </div> : null}
+       
+                        </div>
+                        
        
                                 <button type="submit" className="btn btn-primary btn-lg btn-block rounded">Log In</button>
 

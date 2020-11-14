@@ -3,7 +3,7 @@ import './footer.css';
 
 const Footer = () =>{
     return(
-        <div className="jumbotron jumbotron-fluid" style={{backgroundColor:"white"}} >
+        <footer className="jumbotron jumbotron-fluid" style={{backgroundColor:"white"}} >
             <div className="container">
 
                 <div className="row lead text-center">
@@ -72,7 +72,7 @@ const Footer = () =>{
               
                    
             </div>
-        </div>       
+        </footer>       
     )
 };
 

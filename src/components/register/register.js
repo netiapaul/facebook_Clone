@@ -1,25 +1,121 @@
 import React from 'react';
 import './register.css';
+import { useFormik } from 'formik';
+
+const validate = values => {
+
+  const errors = {};
+
+  if (!values.firstname) {
+    errors.firstname = 'Required';
+  } else if (values.firstname.length > 15) {
+    errors.firstname = 'Must be 15 characters or less';
+  }
+
+  if (!values.surname) {
+    errors.surname = 'Required';
+  } else if (values.surname.length > 15) {
+    errors.surname = 'Must be 15 characters or less';
+  }
+
+  if (!values.email) {
+      errors.email = 'Required';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = 'Invalid email address';
+    }
+
+  if (!values.password) {
+    errors.password = 'Required';
+  } else if (values.password.length < 8) {
+    errors.password = 'Must be 8 characters or more';
+  }
+
+ 
+
+  return errors;
+};
 
 const Register = () =>{
+
+  const formik = useFormik({
+    initialValues: {
+      firstname: '',
+      surname: '',
+      email: '',
+      password:''
+    },
+    validate,
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
     return(
-        <form>
-  <div className="form-row">
+        <form onSubmit={formik.handleSubmit}>
+          <div className="form-row">
+            <div className="form-group col-md-6">
+            <input
+            className="form-control rounded"
+            id="firstname"
+            name="firstname"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.firstname}
+            placeholder="First Name"
+            />
+            {formik.touched.firstname && formik.errors.firstname ? <div className="alert alert-danger mt-1" role="alert">
+              {formik.errors.firstname}
+           </div> : null}
+            </div>
+            
     <div className="form-group col-md-6">
-      <input type="email" className="form-control" id="firstname" placeholder="First Name"/>
-    </div>
-
-    <div className="form-group col-md-6">
-      <input type="password" className="form-control" id="surname" placeholder="Surname"/>
+      <input
+            className="form-control rounded"
+            id="surname"
+            name="surname"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.surname}
+            placeholder="Surname"
+            />
+            {formik.touched.surname && formik.errors.surname ? <div className="alert alert-danger mt-1" role="alert">
+              {formik.errors.surname}
+           </div> : null}
     </div>
   </div>
 
   <div className="form-group">
-    <input type="email" className="form-control" id="regemail" placeholder="email address"/>
+    <input
+    className="form-control rounded"
+    id="regemail"
+    name="email"
+    type="email"
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+    value={formik.values.email}
+    placeholder="email address"
+    />
+    {formik.touched.email && formik.errors.email ? <div className="alert alert-danger mt-1" role="alert">
+              {formik.errors.email}
+           </div> : null}
   </div>
 
   <div className="form-group">
-    <input type="password" className="form-control" id="regpassword" placeholder="password"/>
+  <input
+    className="form-control rounded"
+    id="regpassword"
+    name="password"
+    type="password"
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+    value={formik.values.password}
+    placeholder="password"
+    />
+    {formik.touched.password && formik.errors.password ? <div className="alert alert-danger mt-1" role="alert">
+              {formik.errors.password}
+           </div> : null}
   </div>
 
   <p className="register_note">
