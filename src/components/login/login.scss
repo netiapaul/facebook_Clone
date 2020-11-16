@@ -3,31 +3,23 @@
 *{
     font-family: 'Roboto', sans-serif;
 }
-// .container-fluid{
-//     position: relative;
-//     height: 100vh !important;
-//     // width: 100vw !important;
-//     min-height:100% !important;
-// }
-.content{
-    border: none !important;
-    background: transparent !important;
-    margin: auto;
+.container-fluid{
+    background-color: #F0F2F5 !important;
+}
+.brand-card,.container{
+    background-color: transparent !important;
+}
+.img-fluid {
+    max-width: 65%;
+    height: auto;
 }
 .form-card{
-    padding:0px !important;
-}
-.row{
-    margin: 0px;
-}
-.img-fluid{
-    margin: -30px;
-    width: 20rem;
+    width: 25rem !important;
+    margin: auto;
 }
 .brand-pr{
-    margin-top: 20px !important;
-    width: 500px !important;
-    font-size: 28px;
+    margin-top: -1em !important;
+    font-size: 1.5em;
     line-height: 32px;
 }
 .horizontal-line{

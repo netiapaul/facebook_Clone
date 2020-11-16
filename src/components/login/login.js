@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../assets/images/facebook.svg';
-// import './login.css';
+import './login.css';
 import Register from '../register/register';
 import Footer from '../footer/footer';
 import { useFormik } from 'formik';
@@ -39,13 +39,13 @@ const Login = ()=>{
 
     return(
         <React.Fragment>
-        <div className="container-fluid vh-100" style={{backgroundColor:"green"}}>
+        <div className="container-fluid vh-100">
             
-            <div className="container align-middle" style={{backgroundColor:"white"}}>
+            <div className="container align-middle">
 
                 <div className="row py-4">
                     <div className="col-md-6 col">
-                        <div className="card">
+                        <div className="card border-0 brand-card">
                             <div className="card-body">
                                 <img src={logo} className="img-fluid" alt="Responsive logo brand"/>
                                 <p className="brand-pr d-none d-lg-block d-xl-block">Facebook helps you connect and share with the people in your life</p>
@@ -54,7 +54,7 @@ const Login = ()=>{
                     </div>
 
                     <div className="col-md-6 col">
-                        <div className="card shadow">
+                        <div className="card shadow rounded-lg form-card">
                             <div className="card-body">
                                 <form onSubmit={formik.handleSubmit}>
                                     <div className="form-group">
