@@ -3,7 +3,7 @@ import './footer.css';
 
 const Footer = () =>{
     return(
-        <footer className="jumbotron jumbotron-fluid" style={{backgroundColor:"white"}} >
+        <footer className="jumbotron jumbotron-fluid mb-0" style={{backgroundColor:"white"}} >
             <div className="container">
 
                 <div className="row lead text-center">

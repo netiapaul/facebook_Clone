@@ -1,9 +1,11 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import logo from '../../assets/images/facebook.svg';
 import './login.css';
 import Register from '../register/register';
 import Footer from '../footer/footer';
 import { useFormik } from 'formik';
+import axios from 'axios';
+
 
 const validate = values => {
     const errors = {};
@@ -32,10 +34,14 @@ const Login = ()=>{
           password: '',
         },
         validate,
+        // useEffect:(()=>{
+        //     console.log('Use Effect Works')
+        // },[]),
         onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
+        //   console.log(JSON.stringify(values, null, 2));
         },
       });
+
 
     return(
         <React.Fragment>
@@ -68,7 +74,7 @@ const Login = ()=>{
                                         value={formik.values.email}
                                         placeholder="email address"
                                         />
-                                        {formik.touched.email && formik.errors.email ? <div className="alert alert-danger mt-1" role="alert">
+                                        {formik.touched.email && formik.errors.email ? <div className="alert alert-danger mt-1 py-1" role="alert">
                                             {formik.errors.email}
                                         </div> : null}
                                     </div>
@@ -85,7 +91,7 @@ const Login = ()=>{
                                         value={formik.values.password}
                                         placeholder="password"
                                         />
-                                        {formik.touched.password && formik.errors.password ? <div className="alert alert-danger mt-1" role="alert">
+                                        {formik.touched.password && formik.errors.password ? <div className="alert alert-danger mt-1 py-1" role="alert">
                                             {formik.errors.password}
                                         </div> : null}
 
@@ -127,11 +133,12 @@ const Login = ()=>{
                         </div>
                     </div>
 
-                </div>        
+                </div>  
+ 
             </div>
-
-            {/* Footer Import */}
-             <Footer />
+              
+       {/* Footer Import */}
+<Footer />      
 
         </React.Fragment>       
 

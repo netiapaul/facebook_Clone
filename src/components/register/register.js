@@ -1,6 +1,7 @@
 import React from 'react';
 import './register.css';
 import { useFormik } from 'formik';
+import axios from 'axios';
 
 const validate = values => {
 
@@ -46,7 +47,18 @@ const Register = () =>{
     },
     validate,
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      fetch('http://localhost:4400/api/v1/users',{
+        method:'POST',
+        mode:'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values, null, 2)
+        // body data type must match "Content-Type" header
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      // alert(JSON.stringify(values, null, 2));
     },
   });
 
@@ -64,7 +76,7 @@ const Register = () =>{
             value={formik.values.firstname}
             placeholder="First Name"
             />
-            {formik.touched.firstname && formik.errors.firstname ? <div className="alert alert-danger mt-1" role="alert">
+            {formik.touched.firstname && formik.errors.firstname ? <div className="alert alert-danger mt-1 py-1" role="alert">
               {formik.errors.firstname}
            </div> : null}
             </div>
@@ -80,7 +92,7 @@ const Register = () =>{
             value={formik.values.surname}
             placeholder="Surname"
             />
-            {formik.touched.surname && formik.errors.surname ? <div className="alert alert-danger mt-1" role="alert">
+            {formik.touched.surname && formik.errors.surname ? <div className="alert alert-danger mt-1 py-1" role="alert">
               {formik.errors.surname}
            </div> : null}
     </div>
@@ -97,7 +109,7 @@ const Register = () =>{
     value={formik.values.email}
     placeholder="email address"
     />
-    {formik.touched.email && formik.errors.email ? <div className="alert alert-danger mt-1" role="alert">
+    {formik.touched.email && formik.errors.email ? <div className="alert alert-danger mt-1 py-1" role="alert">
               {formik.errors.email}
            </div> : null}
   </div>
@@ -113,7 +125,7 @@ const Register = () =>{
     value={formik.values.password}
     placeholder="password"
     />
-    {formik.touched.password && formik.errors.password ? <div className="alert alert-danger mt-1" role="alert">
+    {formik.touched.password && formik.errors.password ? <div className="alert alert-danger mt-1 py-1" role="alert">
               {formik.errors.password}
            </div> : null}
   </div>
