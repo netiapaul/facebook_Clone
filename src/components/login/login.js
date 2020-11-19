@@ -38,6 +38,7 @@ const Login = ()=>{
         //     console.log('Use Effect Works')
         // },[]),
         onSubmit: values => {
+            
         //   console.log(JSON.stringify(values, null, 2));
         },
       });
@@ -75,7 +76,7 @@ const Login = ()=>{
                                         placeholder="email address"
                                         />
                                         {formik.touched.email && formik.errors.email ? <div className="alert alert-danger mt-1 py-1" role="alert">
-                                            {formik.errors.email}
+                                            <small> {formik.errors.email}</small>    
                                         </div> : null}
                                     </div>
                 
@@ -92,7 +93,7 @@ const Login = ()=>{
                                         placeholder="password"
                                         />
                                         {formik.touched.password && formik.errors.password ? <div className="alert alert-danger mt-1 py-1" role="alert">
-                                            {formik.errors.password}
+                                        <small>{formik.errors.password}</small>    
                                         </div> : null}
 
                                     </div>

@@ -31,8 +31,6 @@ const validate = values => {
     errors.password = 'Must be 8 characters or more';
   }
 
- 
-
   return errors;
 };
 
@@ -46,7 +44,7 @@ const Register = () =>{
       password:''
     },
     validate,
-    onSubmit: values => {
+    onSubmit: (values,{ setSubmitting }) => {
       fetch('http://localhost:4400/api/v1/users',{
         method:'POST',
         mode:'cors',
@@ -77,8 +75,8 @@ const Register = () =>{
             placeholder="First Name"
             />
             {formik.touched.firstname && formik.errors.firstname ? <div className="alert alert-danger mt-1 py-1" role="alert">
-              {formik.errors.firstname}
-           </div> : null}
+              <small>{formik.errors.firstname}</small>  
+            </div> : null}
             </div>
             
     <div className="form-group col-md-6">
@@ -93,8 +91,8 @@ const Register = () =>{
             placeholder="Surname"
             />
             {formik.touched.surname && formik.errors.surname ? <div className="alert alert-danger mt-1 py-1" role="alert">
-              {formik.errors.surname}
-           </div> : null}
+              <small>{formik.errors.surname}</small>  
+            </div> : null}
     </div>
   </div>
 
@@ -110,8 +108,8 @@ const Register = () =>{
     placeholder="email address"
     />
     {formik.touched.email && formik.errors.email ? <div className="alert alert-danger mt-1 py-1" role="alert">
-              {formik.errors.email}
-           </div> : null}
+      <small>{formik.errors.email}</small>        
+    </div> : null}
   </div>
 
   <div className="form-group">
@@ -126,8 +124,8 @@ const Register = () =>{
     placeholder="password"
     />
     {formik.touched.password && formik.errors.password ? <div className="alert alert-danger mt-1 py-1" role="alert">
-              {formik.errors.password}
-           </div> : null}
+      <small>{formik.errors.password}</small>        
+    </div> : null}
   </div>
 
   <p className="register_note">
