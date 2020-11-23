@@ -1,10 +1,10 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import logo from '../../assets/images/facebook.svg';
 import './login.css';
 import Register from '../register/register';
 import Footer from '../footer/footer';
 import { useFormik } from 'formik';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 const validate = values => {
@@ -34,9 +34,7 @@ const Login = ()=>{
           password: '',
         },
         validate,
-        // useEffect:(()=>{
-        //     console.log('Use Effect Works')
-        // },[]),
+
         onSubmit: values => {
             
         //   console.log(JSON.stringify(values, null, 2));

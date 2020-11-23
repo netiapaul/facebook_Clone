@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './register.css';
 import { useFormik } from 'formik';
-import axios from 'axios';
+// import axios from 'axios';
 
 const validate = values => {
 
@@ -34,7 +34,12 @@ const validate = values => {
   return errors;
 };
 
+let serverError,serverSuccess;
+
+
 const Register = () =>{
+
+  const [res,setResponse]=useState("");
 
   const formik = useFormik({
     initialValues: {
@@ -44,7 +49,7 @@ const Register = () =>{
       password:''
     },
     validate,
-    onSubmit: (values,{ setSubmitting }) => {
+    onSubmit: (values) => {
       fetch('http://localhost:4400/api/v1/users',{
         method:'POST',
         mode:'cors',
@@ -52,16 +57,36 @@ const Register = () =>{
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(values, null, 2)
-        // body data type must match "Content-Type" header
+       })
+      .then(async response=>{
+        const data =await response.json();
+
+        // check for error response
+        if (!response.ok) {
+           // get error message from body or default to response status
+           const error = data || response.status;
+           return Promise.reject(error);
+        }
+
+        // serverSuccess=data
+        // console.log(serverSuccess);
+        setResponse(data);
+        // console.log(res)
+
       })
-      .then(response => response.json())
-      .then(data => console.log(data))
+      .catch(error => {
+        setResponse(error);
+        // serverError=error
+        // console.log(serverError);
+    });
       // alert(JSON.stringify(values, null, 2));
-    },
+    }
   });
 
     return(
+
         <form onSubmit={formik.handleSubmit}>
+              {res}
           <div className="form-row">
             <div className="form-group col-md-6">
             <input
