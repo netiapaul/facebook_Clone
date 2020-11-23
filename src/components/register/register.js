@@ -34,7 +34,7 @@ const validate = values => {
   return errors;
 };
 
-let serverError,serverSuccess;
+// let serverError,serverSuccess;
 
 
 const Register = () =>{
@@ -68,16 +68,12 @@ const Register = () =>{
            return Promise.reject(error);
         }
 
-        // serverSuccess=data
-        // console.log(serverSuccess);
         setResponse(data);
-        // console.log(res)
 
       })
       .catch(error => {
         setResponse(error);
-        // serverError=error
-        // console.log(serverError);
+
     });
       // alert(JSON.stringify(values, null, 2));
     }
